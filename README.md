@@ -26,6 +26,12 @@ go install bcr/fraction
 ~/go/bin/fraction
 ```
 
+## Running Tests
+
+```bash
+go test
+```
+
 ## Initial Setup (just for information)
 
 You don't have to do this.
