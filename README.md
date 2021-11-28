@@ -32,12 +32,3 @@ go run .
 cd fraction
 go test
 ```
-
-## Initial Setup (just for information)
-
-You don't have to do this.
-
-```bash
-go mod init bcr/fraction
-```
-Is how I made the `go.mod`
