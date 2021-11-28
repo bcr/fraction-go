@@ -146,8 +146,6 @@ func TestSimplify(t *testing.T) {
 }
 
 func TestExample1(t *testing.T) {
-	t.Skip("Not ready yet")
-
 	input := "1/2 * 3_3/4"
 	expected := "1_7/8"
 
@@ -158,8 +156,6 @@ func TestExample1(t *testing.T) {
 }
 
 func TestExample2(t *testing.T) {
-	t.Skip("Not ready yet")
-
 	input := "2_3/8 + 9/8"
 	expected := "3_1/2"
 

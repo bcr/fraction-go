@@ -102,9 +102,22 @@ func Parse(stringFraction string) Fraction {
 
 func Evaluate(expression string) string {
 	fields := strings.Fields(expression)
-	operand1 := fields[0]
+	operand1 := Parse(fields[0])
 	operator := fields[1]
-	operand2 := fields[2]
+	operand2 := Parse(fields[2])
+	result := Fraction{0, 0}
 
-	return operand1 + operator + operand2
+	switch operator {
+	case "*":
+		result.numerator = operand1.numerator * operand2.numerator
+		result.denominator = operand1.denominator * operand2.denominator
+
+	case "+":
+		result.numerator = (operand1.numerator * operand2.denominator) + (operand2.numerator * operand1.denominator)
+		result.denominator = operand1.denominator * operand2.denominator
+
+	}
+
+	result.Simplify()
+	return result.AsString()
 }
