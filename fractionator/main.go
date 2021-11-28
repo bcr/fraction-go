@@ -1,7 +1,7 @@
 package main
 
 import (
-	"bcr/fraction"
+	"bcr/fraction/fraction"
 	"bufio"
 	"fmt"
 	"os"
