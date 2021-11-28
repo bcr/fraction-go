@@ -74,6 +74,17 @@ func TestMixedNumberNegative(t *testing.T) {
 	}
 }
 
+func TestSimplify(t *testing.T) {
+	input := Fraction{6, 8}
+	expected := Fraction{3, 4}
+
+	input.Simplify()
+	actual := input
+	if expected != actual {
+		t.Fatalf("Expected %+v, got %+v", expected, actual)
+	}
+}
+
 func TestExample1(t *testing.T) {
 	t.Skip("Not ready yet")
 

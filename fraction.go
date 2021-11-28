@@ -10,6 +10,23 @@ type Fraction struct {
 	denominator int
 }
 
+func (fraction *Fraction) Simplify() {
+	gcd := GCD(fraction.numerator, fraction.denominator)
+	fraction.numerator /= gcd
+	fraction.denominator /= gcd
+}
+
+// https://go.dev/play/p/SmzvkDjYlb
+// greatest common divisor (GCD) via Euclidean algorithm
+func GCD(a, b int) int {
+	for b != 0 {
+		t := b
+		b = a % b
+		a = t
+	}
+	return a
+}
+
 func Parse(stringFraction string) Fraction {
 	negative := stringFraction[0] == '-'
 	signMultiplier := 1
