@@ -94,6 +94,16 @@ func TestAsStringFraction(t *testing.T) {
 	}
 }
 
+func TestAsStringMixed(t *testing.T) {
+	input := Fraction{9, 8}
+	expected := "1_1/8"
+
+	actual := input.AsString()
+	if expected != actual {
+		t.Fatalf("Expected %+v, got %+v", expected, actual)
+	}
+}
+
 func TestSimplify(t *testing.T) {
 	input := Fraction{6, 8}
 	expected := Fraction{3, 4}

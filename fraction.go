@@ -18,10 +18,24 @@ func (fraction *Fraction) Simplify() {
 }
 
 func (fraction *Fraction) AsString() string {
-	if fraction.denominator == 1 {
-		return fmt.Sprint(fraction.numerator)
+	numerator := fraction.numerator
+	denominator := fraction.denominator
+	whole := numerator / denominator
+	numerator -= whole * denominator
+	returnString := ""
+
+	if (whole != 0) || (whole == 0 && numerator == 0) {
+		returnString = fmt.Sprint(whole)
 	}
-	return fmt.Sprintf("%d/%d", fraction.numerator, fraction.denominator)
+
+	if numerator > 0 {
+		if len(returnString) > 0 {
+			returnString += "_"
+		}
+		returnString += fmt.Sprintf("%d/%d", numerator, denominator)
+	}
+
+	return returnString
 }
 
 // https://go.dev/play/p/SmzvkDjYlb
