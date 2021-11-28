@@ -116,6 +116,14 @@ func Evaluate(expression string) string {
 		result.numerator = (operand1.numerator * operand2.denominator) + (operand2.numerator * operand1.denominator)
 		result.denominator = operand1.denominator * operand2.denominator
 
+	case "-":
+		result.numerator = (operand1.numerator * operand2.denominator) - (operand2.numerator * operand1.denominator)
+		result.denominator = operand1.denominator * operand2.denominator
+
+	case "/":
+		result.numerator = operand1.numerator * operand2.denominator
+		result.denominator = operand1.denominator * operand2.numerator
+
 	}
 
 	result.Simplify()

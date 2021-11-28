@@ -164,3 +164,23 @@ func TestExample2(t *testing.T) {
 		t.Fatalf("Expected \"%s\", got \"%s\"", expected, actual)
 	}
 }
+
+func TestEvaluateSubtraction(t *testing.T) {
+	input := "2_3/8 - 9/8"
+	expected := "1_1/4"
+
+	actual := Evaluate(input)
+	if expected != actual {
+		t.Fatalf("Expected \"%s\", got \"%s\"", expected, actual)
+	}
+}
+
+func TestEvaluateDivision(t *testing.T) {
+	input := "1/2 / 1/2"
+	expected := "1"
+
+	actual := Evaluate(input)
+	if expected != actual {
+		t.Fatalf("Expected \"%s\", got \"%s\"", expected, actual)
+	}
+}
