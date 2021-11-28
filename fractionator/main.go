@@ -12,7 +12,7 @@ func main() {
 	for true {
 		fmt.Print("? ")
 		text, _ := reader.ReadString('\n')
-		if text == "\n" {
+		if (len(text) == 0) || (text == "\n") {
 			break
 		}
 		fmt.Print("= ")
