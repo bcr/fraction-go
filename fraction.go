@@ -11,6 +11,13 @@ type Fraction struct {
 }
 
 func Parse(stringFraction string) Fraction {
+	negative := stringFraction[0] == '-'
+	signMultiplier := 1
+	if negative {
+		stringFraction = stringFraction[1:]
+		signMultiplier = -1
+	}
+
 	mixedIndex := strings.Index(stringFraction, "_")
 	fractionIndex := strings.Index(stringFraction, "/")
 	whole := 0
@@ -38,7 +45,7 @@ func Parse(stringFraction string) Fraction {
 		denominator, _ = strconv.Atoi(denominatorString)
 	}
 
-	return Fraction{whole*denominator + numerator, denominator}
+	return Fraction{(whole*denominator + numerator) * signMultiplier, denominator}
 }
 
 func Evaluate(expression string) string {

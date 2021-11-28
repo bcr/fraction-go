@@ -65,8 +65,6 @@ func TestMixedNumber(t *testing.T) {
 }
 
 func TestMixedNumberNegative(t *testing.T) {
-	t.Skip("Not ready yet")
-
 	input := "-3_3/4"
 	expected := Fraction{-15, 4}
 
