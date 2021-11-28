@@ -74,6 +74,26 @@ func TestMixedNumberNegative(t *testing.T) {
 	}
 }
 
+func TestAsStringWholeNumber0(t *testing.T) {
+	input := Fraction{0, 1}
+	expected := "0"
+
+	actual := input.AsString()
+	if expected != actual {
+		t.Fatalf("Expected %+v, got %+v", expected, actual)
+	}
+}
+
+func TestAsStringFraction(t *testing.T) {
+	input := Fraction{1, 2}
+	expected := "1/2"
+
+	actual := input.AsString()
+	if expected != actual {
+		t.Fatalf("Expected %+v, got %+v", expected, actual)
+	}
+}
+
 func TestSimplify(t *testing.T) {
 	input := Fraction{6, 8}
 	expected := Fraction{3, 4}

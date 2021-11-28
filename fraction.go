@@ -1,6 +1,7 @@
 package fraction
 
 import (
+	"fmt"
 	"strconv"
 	"strings"
 )
@@ -14,6 +15,13 @@ func (fraction *Fraction) Simplify() {
 	gcd := GCD(fraction.numerator, fraction.denominator)
 	fraction.numerator /= gcd
 	fraction.denominator /= gcd
+}
+
+func (fraction *Fraction) AsString() string {
+	if fraction.denominator == 1 {
+		return fmt.Sprint(fraction.numerator)
+	}
+	return fmt.Sprintf("%d/%d", fraction.numerator, fraction.denominator)
 }
 
 // https://go.dev/play/p/SmzvkDjYlb
