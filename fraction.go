@@ -17,19 +17,32 @@ func (fraction *Fraction) Simplify() {
 	fraction.denominator /= gcd
 }
 
+func IntAbs(value int) int {
+	if value < 0 {
+		return value * -1
+	}
+
+	return value
+}
+
 func (fraction *Fraction) AsString() string {
-	numerator := fraction.numerator
+	isNegative := fraction.numerator < 0
+	numerator := IntAbs(fraction.numerator)
 	denominator := fraction.denominator
 	whole := numerator / denominator
 	numerator -= whole * denominator
 	returnString := ""
 
+	if isNegative {
+		returnString += "-"
+	}
+
 	if (whole != 0) || (whole == 0 && numerator == 0) {
-		returnString = fmt.Sprint(whole)
+		returnString += fmt.Sprint(whole)
 	}
 
 	if numerator > 0 {
-		if len(returnString) > 0 {
+		if whole > 0 {
 			returnString += "_"
 		}
 		returnString += fmt.Sprintf("%d/%d", numerator, denominator)
