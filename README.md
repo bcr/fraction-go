@@ -22,13 +22,14 @@ Example run
 ## Building and Executing
 
 ```bash
-go install bcr/fraction
-~/go/bin/fraction
+cd fractionator
+go run .
 ```
 
 ## Running Tests
 
 ```bash
+cd fraction
 go test
 ```
 
