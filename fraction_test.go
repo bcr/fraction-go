@@ -14,6 +14,16 @@ func TestParseFraction(t *testing.T) {
 	}
 }
 
+func TestParseFractionNegative(t *testing.T) {
+	input := "-1/2"
+	expected := Fraction{-1, 2}
+
+	actual := Parse(input)
+	if expected != actual {
+		t.Fatalf("Expected %+v, got %+v", expected, actual)
+	}
+}
+
 func TestParseWholeNumber0(t *testing.T) {
 	input := "0"
 	expected := Fraction{0, 1}
@@ -37,6 +47,28 @@ func TestParseWholeNumberPositive(t *testing.T) {
 func TestParseWholeNumberNegative(t *testing.T) {
 	input := "-1"
 	expected := Fraction{-1, 1}
+
+	actual := Parse(input)
+	if expected != actual {
+		t.Fatalf("Expected %+v, got %+v", expected, actual)
+	}
+}
+
+func TestMixedNumber(t *testing.T) {
+	input := "3_3/4"
+	expected := Fraction{15, 4}
+
+	actual := Parse(input)
+	if expected != actual {
+		t.Fatalf("Expected %+v, got %+v", expected, actual)
+	}
+}
+
+func TestMixedNumberNegative(t *testing.T) {
+	t.Skip("Not ready yet")
+
+	input := "-3_3/4"
+	expected := Fraction{-15, 4}
 
 	actual := Parse(input)
 	if expected != actual {
